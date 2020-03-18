@@ -1,0 +1,54 @@
+server:
+  port: 80
+spring:
+  application:
+    name: zuul
+    cloud:
+      loadbalancer:
+        retry:
+          enabled: true
+zuul:
+  sensitive-headers: Access-Control-Allow-Origin
+  ignored-headers: Access-Control-Allow-Origin,H-APP-Id,Token,APPToken
+  routes:
+    login-user:
+      path: /towork/**
+      url: towork-server
+  max:
+    host:
+      connections: 500
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
+  retryable: true
+  semaphore:
+    max-semaphores: 2000
+  ribbon-isolation-strategy: semaphore
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5
+    service-url:
+      defaultZone: http://127.0.0.1:8888/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000000
+feign:
+  hystrix:
+    enabled: true
+ribbon:
+  ReadTimeout: 80000
+  ConnectTimeout: 60000
+  MaxAutoRetries: 3
+  MaxAutoRetriesNextServer: 3
+  OkToRetryOnAllOperations: true
+  eureka:
+    enabled: true
