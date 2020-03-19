@@ -11,6 +11,7 @@ import config.Constants;
 import io.jsonwebtoken.Claims;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
@@ -95,7 +96,12 @@ public class UserInfoService {
             if(userInfo.getPassword().length()!=32){
                 throw new BizException("密码格式不正确");
             }
-            userInfoMapper.insertSelective(userInfo);
+            try {
+                userInfoMapper.insertSelective(userInfo);
+            }catch (DuplicateKeyException e){
+                throw new BizException("此用户已存在");
+            }
+
             entity.UserInfo userInfo1 = new entity.UserInfo(userInfo.getUid(), userInfo.getPhone());
             try {
                 String jwt = JwtUtil.createJWT(Constants.JWT_ID, Constants.JWT_ISSUER, JSON.toJSONString(userInfo1), Constants.JWT_TTL);

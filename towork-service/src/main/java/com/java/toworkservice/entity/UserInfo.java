@@ -21,7 +21,7 @@ public class UserInfo {
     private String phone;   //手机号
     private String uno; //工号
     private Integer age;//年龄
-    private Integer sex;//性别 1男 2女
+    private Boolean sex;//性别 1男 2女
     private String address;//家庭住址
     private String department;//所在车间
     private String grade;//所在班次
@@ -61,11 +61,11 @@ public class UserInfo {
         this.age = age;
     }
 
-    public Integer getSex() {
+    public Boolean getSex() {
         return sex;
     }
 
-    public void setSex(Integer sex) {
+    public void setSex(Boolean sex) {
         this.sex = sex;
     }
 

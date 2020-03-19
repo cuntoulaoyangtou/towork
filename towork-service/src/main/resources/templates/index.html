@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>人脸采集</title>
+	<style>
+		
+		
+	</style>
+	  
+		<script src="js/jquery.min.js"></script>
+		
+	</head>
+	<body>
+		<div id="over" class="overLoading"></div>
+		<div id="layout" class="layoutLoading">
+			<img style="width: 100px;height: 100px;" src="img/loadding.gif" />
+		</div>
+		<img id="zhiwen"  alt="" style=" width: 90%;display: none;"/>
+	</body>
+	
+	<script type="text/javascript">
+	// 扩展API加载完毕后调用onPlusReady回调函数 
+	document.addEventListener( "plusready", onPlusReady, false );
+	var pusher = null;
+	var timecount;
+	// 快照
+	function snapshotPusher() {
+		pusher.snapshot(function(e){
+			pusher.stop();
+			pusher.close();
+			writeToScreen("正在采集，请稍后");
+			 var src ="file://"+e.tempImagePath
+			 writeToScreen("采集完成");
+			
+				  var reader = new plus.io.FileReader();
+				      reader.onloadend = function (e) {  
+				        var speech = e.target.result;//base64图片   
+						document.getElementById('zhiwen').src=speech
+						 $('#zhiwen').show();
+						 scanWin.hide();
+						
+				      };  
+				  reader.readAsDataURL(src);  
+				
+				showLoading(false);
+				
+				
+		}, function(e) {
+			showLoading(false);
+			plus.nativeUI.alert("snapshot error: "+JSON.stringify(e));
+		});
+	}
+	var scanWin=null;
+	// 扩展API加载完毕，现在可以正常调用扩展API 
+	function onPlusReady() {
+		// 获取设备默认的摄像头对象 
+		pusher = plus.video.createLivePusher('livepusher', {
+			url:'',
+			position: 'static'
+		});
+		plus.webview.currentWebview().append(pusher);
+		setTimeout(function(){
+			setFace()
+		},5000)
+		scanWin = plus.webview.create('scan.html','',{background:'transparent'});
+		scanWin.show(); // 显示窗口
+		
+	}
+
+	//采集人脸样本
+	function setFace(){
+		var countdown = 5;
+			timecount = window.setInterval(function() {
+					if(countdown>0){
+						writeToScreen(countdown+"秒后开始采集");
+					}else{
+						scanWin.evalJS("$line.hide();");
+						writeToScreen("正在采集，请稍后");
+					}   
+					if(countdown<=0){
+						showLoading(true);
+						window.clearInterval(timecount);
+						countdown=0;
+					}
+					if(countdown<=2){
+						snapshotPusher()
+					}
+					countdown--;
+					
+			}, 1000);
+	}
+    // 显示文字
+	function writeToScreen(message)	{
+		scanWin.evalJS("$info.stop().text('"+message+"');");
+	} 
+	
+	
+	// 显示或隐藏加载页面
+  function showLoading(show){
+	if(show){
+	   document.getElementById("over").style.display = "block";
+	   document.getElementById("layout").style.display = "block";
+	}else{
+		document.getElementById("over").style.display = "none";
+	   document.getElementById("layout").style.display = "none";
+	}
+	}
+	</script>
+</html>
