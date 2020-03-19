@@ -24,6 +24,15 @@ public class UserInfo {
     private String department;//所在车间
     private String grade;//所在班次
     private String password;
+    private Integer faceresult;//人脸识别结果 1成功 2失败
+
+    public Integer getFaceresult() {
+        return faceresult;
+    }
+
+    public void setFaceresult(Integer faceresult) {
+        this.faceresult = faceresult;
+    }
 
     public Integer getUid() {
         return uid;
