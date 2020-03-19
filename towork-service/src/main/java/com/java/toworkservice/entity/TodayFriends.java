@@ -9,7 +9,7 @@ import javax.persistence.Id;
  */
 public class TodayFriends {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Integer tid;
     private  String  names;//接触人员名单
 

@@ -3,6 +3,7 @@ package com.java.toworkservice.controller;
 import com.java.toworkservice.entity.UserInfo;
 import com.java.toworkservice.service.UserInfoService;
 import entity.Result;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,14 +23,24 @@ import utils.ResultGenerator;
 public class UserInfoContrellor {
     @Autowired
     UserInfoService userInfoService;
-    @PostMapping("add")
-    public Result addUserInfo(UserInfo userInfo){
-        userInfoService.addUserInfo(userInfo);
-        return ResultGenerator.genSuccessResult(userInfo);
+    @PostMapping("dologin")
+    public Result doLogin(UserInfo userInfo){
+        String dologin = userInfoService.dologin(userInfo);
+        return ResultGenerator.genSuccessResult(dologin);
     }
-    @GetMapping("getuser")
-    public Result getUserInfo(Integer uid){
-        UserInfo userInfoByID = userInfoService.getUserInfoByID(uid);
-        return ResultGenerator.genSuccessResult(userInfoByID);
+    @PostMapping("doregister")
+    public Result doRegister(UserInfo userInfo){
+        String s = userInfoService.doRegister(userInfo);
+        return ResultGenerator.genSuccessResult(s);
+    }
+    @PostMapping("change")
+    public Result changeUserInfo(UserInfo userInfo){
+        String s = userInfoService.changeUserInfo(userInfo);
+        return ResultGenerator.genSuccessResult(s);
+    }
+    @GetMapping("getuserinfo")
+    public Result getUserInfo(String key){
+        entity.UserInfo userInfo = userInfoService.getUserInfo(key);
+        return ResultGenerator.genSuccessResult(userInfo);
     }
 }

@@ -18,20 +18,23 @@ public class UserInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer uid;
     private String username;//姓名
+    private String phone;   //手机号
+    private String uno; //工号
     private Integer age;//年龄
     private Integer sex;//性别 1男 2女
     private String address;//家庭住址
     private String department;//所在车间
     private String grade;//所在班次
     private String password;
-    private Integer faceresult;//人脸识别结果 1成功 2失败
+    private String avatar; //头像
+    private Integer face_id;//人脸识别ID
 
-    public Integer getFaceresult() {
-        return faceresult;
+    public Integer getFace_id() {
+        return face_id;
     }
 
-    public void setFaceresult(Integer faceresult) {
-        this.faceresult = faceresult;
+    public void setFace_id(Integer face_id) {
+        this.face_id = face_id;
     }
 
     public Integer getUid() {
@@ -96,5 +99,29 @@ public class UserInfo {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getUno() {
+        return uno;
+    }
+
+    public void setUno(String uno) {
+        this.uno = uno;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }
