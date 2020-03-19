@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< .mine
     <list default="true" id="ec6fc532-71fa-460a-8266-fd263e97d0e1" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
@@ -11,6 +12,18 @@
     <ignored path="$PROJECT_DIR$/towork-general-entity/target/" />
     <ignored path="$PROJECT_DIR$/towork-eureka/target/" />
     <ignored path="$PROJECT_DIR$/towork-service/target/" />
+=======
+    <list default="true" id="ec6fc532-71fa-460a-8266-fd263e97d0e1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/towork-general-entity/src/main/java/entity/UserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/towork-general-entity/src/main/java/entity/UserInfo.java" afterDir="false" />
+    </list>
+
+
+
+
+
+>>>>>>> .theirs
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -205,6 +218,7 @@
       </list>
     </option>
   </component>
+<<<<<<< .mine
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -224,6 +238,27 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+=======
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> .theirs
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -418,6 +453,7 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/exception" />
@@ -509,8 +545,13 @@
       <option name="presentableId" value="Default" />
       <updated>1584495450365</updated>
       <workItem from="1584495462458" duration="9129000" />
+<<<<<<< .mine
       <workItem from="1584532840855" duration="6648000" />
       <workItem from="1584596196140" duration="3425000" />
+=======
+      <workItem from="1584534042506" duration="5551000" />
+
+>>>>>>> .theirs
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <created>1584596613255</created>
@@ -571,6 +612,7 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+<<<<<<< .mine
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -828,4 +870,263 @@
       </provider>
     </entry>
   </component>
+=======
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> .theirs
 </project>

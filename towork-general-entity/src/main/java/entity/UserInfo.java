@@ -7,6 +7,7 @@ package entity;
  * @Date 2020/3/18 0018 10:46
  * @Version V1.0
  **/
+
 public class UserInfo {
     private Integer uid;
     private String username;
