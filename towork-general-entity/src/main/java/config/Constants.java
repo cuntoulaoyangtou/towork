@@ -44,4 +44,6 @@ public class Constants {
      * 过期时间
      */
     public static final int JWT_TTL = 60*60*1000;
+
+
 }

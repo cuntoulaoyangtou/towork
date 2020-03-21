@@ -3,6 +3,8 @@ package com.java.toworkservice.exception;
 
 import com.alibaba.fastjson.JSON;
 import entity.Result;
+import entity.ResultCodeEnum;
+import io.jsonwebtoken.ExpiredJwtException;
 import org.mybatis.spring.MyBatisSystemException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,6 +54,14 @@ public class GlobalException {
     public Result exceptionHandler(HttpServletRequest req, DuplicateKeyException e){
         logger.error("SQL唯一约束异常！原因是:{}",e);
         return ResultGenerator.genFailResult("SQL唯一约束异常");
+    }
+
+
+    @ExceptionHandler(value = ExpiredJwtException.class)
+    @ResponseBody
+    public Result exceptionHandler(HttpServletRequest req, ExpiredJwtException e){
+        logger.error("Jwt异常过期:{}",e.getMessage());
+        return ResultGenerator.genFailResult("Token失效").setCode(ResultCodeEnum.FORBIDDEN);
     }
 
 
