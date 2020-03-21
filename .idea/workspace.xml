@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec6fc532-71fa-460a-8266-fd263e97d0e1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/service/UserInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/service/UserInfoService.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
