@@ -49,20 +49,23 @@ public class UserInfoService {
             }else if(userInfo.getUsername() != null){
                 criteria.andEqualTo("username",userInfo.getUsername());
             }else{
-                return null;
+                throw new BizException("用户名或密码为空");
             }
             criteria.andEqualTo("password",userInfo.getPassword());
             UserInfo userInfo1 = userInfoMapper.selectOneByExample(example);
+            if(userInfo1 == null){
+                throw new BizException("用户名或密码错误");
+            }
             try {
                 entity.UserInfo userInfo2 = new entity.UserInfo(userInfo1.getUid(), userInfo1.getUsername(), userInfo1.getPhone(), userInfo1.getUno(), userInfo1.getAge(), userInfo1.getSex(), userInfo1.getAddress(), userInfo1.getDepartment(), userInfo1.getGrade(), userInfo1.getAvatar(), userInfo1.getFace_id());
                 String jwt = JwtUtil.createJWT(Constants.JWT_ID, Constants.JWT_ISSUER, JSON.toJSONString(userInfo2), Constants.JWT_TTL);
                 RedisUtil.set(Constants.JWT_ID,userInfo2,Constants.JWT_TTL);
                 return jwt;
             } catch (Exception e) {
-                throw new BizException("JWT创建失败");
+                throw new BizException("Token创建失败");
             }
         }
-        return null;
+        throw new BizException("用户名和密码为空");
     }
 
     /*

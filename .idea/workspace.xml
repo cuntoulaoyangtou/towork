@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec6fc532-71fa-460a-8266-fd263e97d0e1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/towork-general-entity/src/main/java/config/APIs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/towork-general-entity/src/main/java/utils/RequestUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/controller/EpidemicContrellor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/towork-general-entity/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/towork-general-entity/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/towork-general-entity/src/main/java/config/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/towork-general-entity/src/main/java/config/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/towork-general-entity/target/classes/entity/UserInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/towork-general-entity/target/classes/entity/UserInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/exception/GlobalException.java" beforeDir="false" afterPath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/exception/GlobalException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/service/UserInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/service/UserInfoService.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
