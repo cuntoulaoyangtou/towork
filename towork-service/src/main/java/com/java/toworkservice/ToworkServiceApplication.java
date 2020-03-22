@@ -12,7 +12,6 @@ import tk.mybatis.spring.annotation.MapperScan;
 @SpringBootApplication
 @EnableTransactionManagement
 public class ToworkServiceApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(ToworkServiceApplication.class, args);
     }

@@ -57,9 +57,8 @@ public class UserInfoService {
                 throw new BizException("用户名密码错误");
             }
             try {
-                entity.UserInfo userInfo2 = new entity.UserInfo(userInfo1.getUid(), userInfo1.getUsername(), userInfo1.getPhone(), userInfo1.getUno(), userInfo1.getAge(), userInfo1.getSex(), userInfo1.getAddress(), userInfo1.getDepartment(), userInfo1.getGrade(), userInfo1.getAvatar(), userInfo1.getFace_id());
-                String jwt = JwtUtil.createJWT(Constants.JWT_ID, Constants.JWT_ISSUER, JSON.toJSONString(userInfo2), Constants.JWT_TTL);
-                RedisUtil.set(Constants.JWT_ID,userInfo2,Constants.JWT_TTL);
+                String jwt = JwtUtil.createJWT(Constants.JWT_ID, Constants.JWT_ISSUER, JSON.toJSONString(userInfo1), Constants.JWT_TTL);
+                RedisUtil.set(Constants.JWT_ID,userInfo1,Constants.JWT_TTL);
                 return jwt;
             } catch (Exception e) {
                 throw new BizException("Token创建失败");
@@ -76,10 +75,10 @@ public class UserInfoService {
      * @Date: 2020/3/19 0019 23:10
      *
      */
-    public entity.UserInfo getUserInfo(String key){
+    public UserInfo getUserInfo(String key){
         Claims claims = JwtUtil.parseJWT(key);
         String subject = claims.getSubject();
-        entity.UserInfo userInfo = JSON.parseObject(subject, entity.UserInfo.class);
+        UserInfo userInfo = JSON.parseObject(subject, UserInfo.class);
         return userInfo;
     }
 
@@ -105,17 +104,17 @@ public class UserInfoService {
                 throw new BizException("此用户已存在");
             }
 
-            entity.UserInfo userInfo1 = new entity.UserInfo(userInfo.getUid(), userInfo.getPhone());
+
             try {
-                String jwt = JwtUtil.createJWT(Constants.JWT_ID, Constants.JWT_ISSUER, JSON.toJSONString(userInfo1), Constants.JWT_TTL);
-                RedisUtil.set(Constants.JWT_ID,userInfo1,Constants.JWT_TTL);
+                String jwt = JwtUtil.createJWT(Constants.JWT_ID, Constants.JWT_ISSUER, JSON.toJSONString(userInfo), Constants.JWT_TTL);
+                RedisUtil.set(Constants.JWT_ID,userInfo,Constants.JWT_TTL);
                 return jwt;
             } catch (Exception e) {
                 e.printStackTrace();
                 throw new BizException("JWT创建失败");
             }
         }
-        return null;
+        throw  new BizException("非法的数据参数");
     }
 
     /*
@@ -126,7 +125,7 @@ public class UserInfoService {
      * @Date: 2020/3/19 0019 23:27
      *
      */
-    public String changeUserInfo(UserInfo userInfo)  {
+    public UserInfo changeUserInfo(UserInfo userInfo)  {
         if (userInfo!=null){
             UserInfo userInfo1;
             if(userInfo.getFace_id()!=null){
@@ -136,15 +135,11 @@ public class UserInfoService {
                 }
             }
             userInfoMapper.updateByPrimaryKeySelective(userInfo);
-            entity.UserInfo userInfo2 = new entity.UserInfo(userInfo.getUid(), userInfo.getUsername(), userInfo.getPhone(), userInfo.getUno(), userInfo.getAge(), userInfo.getSex(), userInfo.getAddress(), userInfo.getDepartment(), userInfo.getGrade(), userInfo.getAvatar(), userInfo.getFace_id());
-            try {
-                String jwt = JwtUtil.createJWT(Constants.JWT_ID, Constants.JWT_ISSUER, JSON.toJSONString(userInfo2), Constants.JWT_TTL);
-                RedisUtil.set(Constants.JWT_ID,userInfo2,Constants.JWT_TTL);
-                return jwt;
-            } catch (Exception e) {
-                e.printStackTrace();
-                throw new BizException("JWT创建失败");
-            }
+
+            userInfo1 = userInfoMapper.selectByPrimaryKey(userInfo.getUid());
+            RedisUtil.set(Constants.JWT_ID,userInfo1,Constants.JWT_TTL);
+            return userInfo1;
+
         }
         return null;
     }

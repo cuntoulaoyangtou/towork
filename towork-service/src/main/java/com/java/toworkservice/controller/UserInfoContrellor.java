@@ -35,12 +35,12 @@ public class UserInfoContrellor {
     }
     @PostMapping("change")
     public Result changeUserInfo(UserInfo userInfo){
-        String s = userInfoService.changeUserInfo(userInfo);
-        return ResultGenerator.genSuccessResult(s);
+        UserInfo userInfo1 = userInfoService.changeUserInfo(userInfo);
+        return ResultGenerator.genSuccessResult(userInfo1);
     }
     @GetMapping("getuserinfo")
     public Result getUserInfo(String key){
-        entity.UserInfo userInfo = userInfoService.getUserInfo(key);
+        UserInfo userInfo = userInfoService.getUserInfo(key);
         return ResultGenerator.genSuccessResult(userInfo);
     }
 }
