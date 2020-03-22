@@ -134,4 +134,5 @@ public class HeathDay {
     public void setUpdate_reason(String update_reason) {
         this.update_reason = update_reason;
     }
-}
+
+ }
