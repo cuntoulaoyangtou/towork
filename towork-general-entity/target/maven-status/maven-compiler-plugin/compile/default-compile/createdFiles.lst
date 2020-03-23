@@ -1,5 +1,4 @@
 entity\ResultCodeEnum.class
-entity\UserInfo.class
 utils\JwtUtil.class
 entity\Result.class
 config\Constants.class

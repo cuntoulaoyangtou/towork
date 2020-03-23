@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function login(data) {
   return request({
-    url: 'towork/api/user/login',
+    url: '/towork/api/user/dologin',
     method: 'post',
     params: data
   })
