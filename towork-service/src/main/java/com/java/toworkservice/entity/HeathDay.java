@@ -30,6 +30,7 @@ public class HeathDay {
     private Boolean incomadd;//是否在企业所在地 1是 2否
     private String other; //其他信息
     private String update_reason;   //修改原因
+    private UserInfo userInfo;
 
     public Integer getHid() {
         return hid;
@@ -135,4 +136,11 @@ public class HeathDay {
         this.update_reason = update_reason;
     }
 
- }
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
+    }
+}

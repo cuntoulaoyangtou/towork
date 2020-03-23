@@ -30,11 +30,7 @@ public class UserInfoContrellor {
     UserInfoService userInfoService;
     @PostMapping("dologin")
     public Result doLogin(UserInfo userInfo){
-        System.out.println("leile");
-        System.out.println(userInfo);
         String dologin = userInfoService.dologin(userInfo);
-        System.out.println(userInfo);
-        System.out.println("jwt\n"+dologin);
         return ResultGenerator.genSuccessResult(dologin);
     }
     @PostMapping("doregister")
@@ -66,4 +62,5 @@ public class UserInfoContrellor {
         UserInfo userInfo = userInfoService.getUserInfo(key);
         return ResultGenerator.genSuccessResult(userInfo);
     }
+
 }

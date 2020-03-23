@@ -77,44 +77,14 @@ public class HeathDayService {
 
     /**
      * 分页条件查询
-     * @param heathDay
+     * @param map
      * @param pageNum
      * @param pageSize
      * @return
      */
-    public PageInfo<HeathDay> getlist(HeathDay heathDay,Integer pageNum,Integer pageSize){
-
-        Example example=new Example(HeathDay.class);
-
-        Example.Criteria criteria = example.createCriteria();
-            if(heathDay.getUid()!=null){
-              criteria.andEqualTo("uid",heathDay.getUid());
-            }
-            if(heathDay.getTemperature()!=0){
-                criteria.andGreaterThan("temperature",heathDay.getTemperature());
-            }
-            if(heathDay.getCrosswh()!=null){
-                criteria.andEqualTo("crosswh",heathDay.getCrosswh());
-
-            }
-            if(heathDay.getIshot()!=null){
-                criteria.andEqualTo("ishot",heathDay.getIshot());
-            }
-            if(heathDay.getIskeke()!=null){
-            criteria.andEqualTo("iskeke",heathDay.getIskeke());
-           }
-            if(heathDay.getTowuhan()!=null){
-            criteria.andEqualTo("towuhan",heathDay.getTowuhan());
-           }
-            if(heathDay.getFirends_tor_cwh()!=null){
-            criteria.andEqualTo("firends_tor_cwh",heathDay.getFirends_tor_cwh());
-           }
-            if(heathDay.getIncomadd()!=null){
-                criteria.andEqualTo("incomadd",heathDay.getIncomadd());
-            }
+    public PageInfo<HeathDay> getlist(Map map,Integer pageNum,Integer pageSize){
             PageHelper.startPage(pageNum, pageSize, "hid desc");
-            PageInfo<HeathDay> heathDayPageInfo = new PageInfo<>(heathDayMapper.selectByExample(example));
-
+            PageInfo<HeathDay> heathDayPageInfo = new PageInfo<>(heathDayMapper.getHeathDayAndUser(map));
            return heathDayPageInfo;
     }
 

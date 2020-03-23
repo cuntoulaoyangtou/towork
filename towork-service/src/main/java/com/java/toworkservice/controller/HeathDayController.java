@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import utils.ResultGenerator;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("api/heath")
 public class HeathDayController {
@@ -33,14 +37,24 @@ public class HeathDayController {
 
     /**
      * 分页条件查询
-     * @param heathDay
+     * @param request
      * @param pageNum
      * @param pageSize
      * @return
      */
     @GetMapping("list")
-    public Result getByPage(HeathDay heathDay, Integer pageNum, Integer pageSize) {
-          PageInfo<HeathDay> pageInfo = heathDayService.getlist(heathDay, pageNum, pageSize);
+    public Result getByPage(HttpServletRequest request, Integer pageNum, Integer pageSize) {
+
+        Map map = new HashMap();
+        map.put("iskeke",request.getParameter("iskeke"));
+        map.put("ishot",request.getParameter("ishot"));
+        map.put("towuhan",request.getParameter("towuhan"));
+        map.put("croswh",request.getParameter("croswh"));
+        map.put("firends_tor_cwh",request.getParameter("firends_tor_cwh"));
+        map.put("incomadd",request.getParameter("incomadd"));
+        map.put("start_date",request.getParameter("start_date"));
+        map.put("end_date",request.getParameter("end_date"));
+          PageInfo<HeathDay> pageInfo = heathDayService.getlist(map, pageNum, pageSize);
           return  ResultGenerator.genSuccessResult(pageInfo);
     }
 }
