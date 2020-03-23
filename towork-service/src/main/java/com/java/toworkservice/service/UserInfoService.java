@@ -58,7 +58,7 @@ public class UserInfoService {
             }
             try {
                 String jwt = JwtUtil.createJWT(Constants.JWT_ID, Constants.JWT_ISSUER, JSON.toJSONString(userInfo1), Constants.JWT_TTL);
-                RedisUtil.set(Constants.JWT_ID,userInfo1,Constants.JWT_TTL);
+                RedisUtil.set(jwt,userInfo1);
                 return jwt;
             } catch (Exception e) {
                 throw new BizException("Token创建失败");
@@ -107,7 +107,7 @@ public class UserInfoService {
 
             try {
                 String jwt = JwtUtil.createJWT(Constants.JWT_ID, Constants.JWT_ISSUER, JSON.toJSONString(userInfo), Constants.JWT_TTL);
-                RedisUtil.set(Constants.JWT_ID,userInfo,Constants.JWT_TTL);
+                RedisUtil.set(jwt,userInfo);
                 return jwt;
             } catch (Exception e) {
                 e.printStackTrace();

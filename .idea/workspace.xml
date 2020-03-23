@@ -2,26 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec6fc532-71fa-460a-8266-fd263e97d0e1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/config/ServerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/controller/UploadController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/utils/FileUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/towork-service/src/main/resources/uploads/a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/towork-general-entity/src/main/java/config/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/towork-general-entity/src/main/java/config/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/towork-general-entity/src/main/java/entity/UserInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/towork-general-entity/target/classes/config/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/towork-general-entity/target/classes/config/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/towork-general-entity/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/towork-general-entity/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/towork-general-entity/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/towork-general-entity/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/towork-general-entity/target/towork-general-entity-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/towork-general-entity/target/towork-general-entity-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/towork-eureka/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/towork-eureka/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/towork-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/towork-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/ToworkServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/ToworkServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/controller/UserInfoContrellor.java" beforeDir="false" afterPath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/controller/UserInfoContrellor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/service/UserInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/service/UserInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/utils/RedisUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/towork-service/src/main/java/com/java/toworkservice/utils/RedisUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/towork-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/towork-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/towork-zuul/src/main/java/com/java/toworkzuul/filter/AuthorityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/towork-zuul/src/main/java/com/java/toworkzuul/filter/AuthorityFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/towork-zuul/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/towork-zuul/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,10 +55,10 @@
     <treeState>
       <expand>
         <path>
-          <item name="Found 7 services " type="fcff1e1b:RestServiceStructure$RootNode" />
+          <item name="Found 15 services " type="fcff1e1b:RestServiceStructure$RootNode" />
         </path>
         <path>
-          <item name="Found 7 services " type="fcff1e1b:RestServiceStructure$RootNode" />
+          <item name="Found 15 services " type="fcff1e1b:RestServiceStructure$RootNode" />
           <item name="towork-service" type="c588b436:RestServiceStructure$ProjectNode" />
         </path>
       </expand>
@@ -146,7 +133,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1584883502187</updated>
-      <workItem from="1584883510954" duration="8325000" />
+      <workItem from="1584883510954" duration="16672000" />
     </task>
     <servers />
   </component>

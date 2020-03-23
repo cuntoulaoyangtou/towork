@@ -28,7 +28,7 @@ eureka:
   client:
     registry-fetch-interval-seconds: 5
     service-url:
-      defaultZone: http://127.0.0.1:8888/eureka
+      defaultZone: http://121.37.20.211:8888/eureka
   instance:
     prefer-ip-address: true
     ip-address: 127.0.0.1
