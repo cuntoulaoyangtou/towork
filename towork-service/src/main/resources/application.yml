@@ -20,15 +20,15 @@ eureka:
     prefer-ip-address: true
     lease-expiration-duration-in-seconds: 90
     lease-renewal-interval-in-seconds: 30
-    ip-address: 127.0.0.1
+    ip-address: 121.37.20.211
 spring:
   datasource:
-    password: root
+    password: e0,qP;ba7Qdg
     username: root
-    url: jdbc:mysql://127.0.0.1:3306/towork?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://192.168.0.153:3306/towork?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
   redis:
     database: 0
-    host: 121.37.20.211
+    host: 192.168.0.153
     port: 6379
     password: towork
     jedis:
