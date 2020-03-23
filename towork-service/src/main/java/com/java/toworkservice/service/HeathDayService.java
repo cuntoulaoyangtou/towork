@@ -6,12 +6,16 @@ import com.github.pagehelper.PageInfo;
 import com.java.toworkservice.entity.HeathDay;
 import com.java.toworkservice.exception.BizException;
 import com.java.toworkservice.mapper.HeathDayMapper;
+import javafx.scene.input.DataFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.xml.crypto.Data;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -26,19 +30,24 @@ public class HeathDayService {
      * @param heathDay
      * @return
      */
-    public String sign(HeathDay heathDay){
+    public int sign(HeathDay heathDay){
         if(heathDay!=null){
             Example example=new Example(HeathDay.class);
 
-             Example.Criteria criteria = example.createCriteria();
-            try {
-                heathDayMapper.insertSelective(heathDay);
-            }catch (DuplicateKeyException e){
+            Example.Criteria criteria = example.createCriteria();
+
+            heathDay.setCreate_date(new Date());
+            criteria.andEqualTo("uid",heathDay.getUid());
+            criteria.andEqualTo("create_date",heathDay.getCreate_date());
+            if(heathDayMapper.selectOneByExample(example) == null){
                 throw new BizException("今日已打卡");
             }
+
+           return heathDayMapper.insertSelective(heathDay);
+
         }
 
-        return null;
+        throw new BizException("非法的数据参数");
     }
 
     /**
@@ -46,11 +55,11 @@ public class HeathDayService {
      * @param heathDay
      * @return
      */
-    public  String updata(HeathDay heathDay){
+    public  int updata(HeathDay heathDay){
          if(null!=heathDay){
-            heathDayMapper.updateByPrimaryKeySelective(heathDay);
+            return heathDayMapper.updateByPrimaryKeySelective(heathDay);
          }
-        return null;
+        throw new BizException("非法的数据参数");
     }
 
     /**
