@@ -5,10 +5,10 @@ spring:
     name: eureka-server
 eureka:
   client:
-    #ÊÇ·ñ×¢²á×Ô¼ºµÄĞÅÏ¢µ½EurekaServer,Ä¬ÈÏtrue
+    #ï¿½Ç·ï¿½×¢ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½EurekaServer,Ä¬ï¿½ï¿½true
     register-with-eureka: false
-    #ÊÇ·ñÀ­È¡ÆäËû·şÎñµÄĞÅÏ¢£¬ Ä¬ÈÏÊÇtrue
+    #ï¿½Ç·ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ Ä¬ï¿½ï¿½ï¿½ï¿½true
     fetch-registry: false
-    # EurekaServerµÄµØÖ·£¬ÏÖÔÚÊÇ×Ô¼ºµÄµØÖ·£¬Èç¹ûÊÇ¼¯Èº£¬ĞèÒª¼ÓÉÏÆäËüServerµÄµØÖ·¡£
+    # EurekaServerï¿½Äµï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½Äµï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¼ï¿½Èºï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Serverï¿½Äµï¿½Ö·ï¿½ï¿½
     service-url:
-      defaultZone: http://127.0.0.1:${server.port}/eureka/
+      defaultZone: http://121.37.20.211:${server.port}/eureka/

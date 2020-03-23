@@ -6,10 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="towork-eureka" />
-        <module name="towork-general-entity" />
         <module name="towork-service" />
         <module name="towork-zuul" />
+        <module name="towork-general-entity" />
+        <module name="towork-eureka" />
         <module name="toworkgeneralentity" />
       </profile>
     </annotationProcessing>

@@ -21,14 +21,14 @@ public class HeathDayController {
 
     @PostMapping("sign")
     public Result sign(HeathDay heathDay) {
-        String sign = heathDayService.sign(heathDay);
-        return ResultGenerator.genSuccessResult(sign);
+        heathDayService.sign(heathDay);
+        return ResultGenerator.genSuccessResult(heathDay);
     }
 
     @PostMapping("update")
     public Result update(HeathDay heathDay) {
-        String update = heathDayService.updata(heathDay);
-        return ResultGenerator.genSuccessResult(update);
+        heathDayService.updata(heathDay);
+        return ResultGenerator.genSuccessResult(heathDay);
     }
 
     /**

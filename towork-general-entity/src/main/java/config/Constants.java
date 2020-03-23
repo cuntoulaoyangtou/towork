@@ -27,7 +27,7 @@ public class Constants {
     /**
      * 令牌前缀
      */
-    public static final String TOKEN_PREFIX = "towork ";
+    public static final String TOKEN_PREFIX = "towork";
     /**
      * 生成的token
      */
@@ -44,6 +44,13 @@ public class Constants {
      * 过期时间
      */
     public static final int JWT_TTL = 60*60*1000;
+    /**
+     * 文件上传路径
+     */
+    public static final String FILE_UPLOAD_DIR = "./uploads";
+    public static String getRequestHeaderToken(){
+        return TOKEN_PREFIX+"_"+TOKEN;
+    }
 
 
 }

@@ -3,8 +3,6 @@ package com.java.toworkzuul.filter;
 import com.alibaba.fastjson.JSON;
 import config.Constants;
 import entity.ResultCodeEnum;
-import entity.UserInfo;
-import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.core.annotation.Order;
 import utils.JwtUtil;
@@ -15,7 +13,6 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.DateFormat;
 
 
 @Order(2)
@@ -34,7 +31,7 @@ public class AuthorityFilter implements Filter {
 
         String method = request.getMethod();
         if(!"OPTIONS".equals(method)){
-            String token = request.getHeader(Constants.TOKEN_PREFIX+"-"+Constants.TOKEN);
+            String token = request.getHeader(Constants.getRequestHeaderToken());
             try {
                 JwtUtil.parseJWT(token);
                 filterChain.doFilter(servletRequest, servletResponse);
