@@ -23,7 +23,7 @@ eureka:
     ip-address: 127.0.0.1
 spring:
   datasource:
-    password: 123456
+    password: root
     username: root
     url: jdbc:mysql://127.0.0.1:3306/towork?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
   redis:

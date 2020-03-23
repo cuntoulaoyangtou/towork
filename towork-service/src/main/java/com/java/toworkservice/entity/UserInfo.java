@@ -124,4 +124,22 @@ public class UserInfo {
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "uid=" + uid +
+                ", username='" + username + '\'' +
+                ", phone='" + phone + '\'' +
+                ", uno='" + uno + '\'' +
+                ", age=" + age +
+                ", sex=" + sex +
+                ", address='" + address + '\'' +
+                ", department='" + department + '\'' +
+                ", grade='" + grade + '\'' +
+                ", password='" + password + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", face_id=" + face_id +
+                '}';
+    }
 }

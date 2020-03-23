@@ -4,7 +4,7 @@ export function login(data) {
   return request({
     url: '/towork/api/user/dologin',
     method: 'post',
-    params: data
+    data
   })
 }
 
