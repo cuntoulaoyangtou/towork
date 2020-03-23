@@ -2,8 +2,8 @@ import request from '@/utils/request'
 
 export function login(data) {
   return request({
-    url: '/api/user/login',
-    method: 'get',
+    url: 'towork/api/user/login',
+    method: 'post',
     params: data
   })
 }
@@ -24,7 +24,6 @@ export function logout(token) {
   })
 }
 
-
 export function getUsers(data) {
   return request({
     url: '/admin/user/getusers',
@@ -42,23 +41,23 @@ export function getUser(data) {
 }
 
 export function delUser(data) {
-    return request({
-        url: '/admin/user/del',
-        method: 'post',
-        data
-    })
+  return request({
+    url: '/admin/user/del',
+    method: 'post',
+    data
+  })
 }
 export function updateUser(data) {
-    return request({
-        url: '/admin/user/update',
-        method: 'post',
-        data
-    })
+  return request({
+    url: '/admin/user/update',
+    method: 'post',
+    data
+  })
 }
 export function addUser(data) {
-    return request({
-        url: '/admin/user/add',
-        method: 'post',
-        data
-    })
+  return request({
+    url: '/admin/user/add',
+    method: 'post',
+    data
+  })
 }
