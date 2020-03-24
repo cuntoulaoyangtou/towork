@@ -36,15 +36,14 @@ public class HeathDayService {
 
             Example.Criteria criteria = example.createCriteria();
 
-            heathDay.setCreate_date(new Date());
-            criteria.andEqualTo("uid",heathDay.getUid());
-            criteria.andEqualTo("create_date",heathDay.getCreate_date());
-            if(heathDayMapper.selectOneByExample(example) == null){
-                throw new BizException("今日已打卡");
+            if(heathDay.getUid()!=null){
+                if(heathDayMapper.getHeathIsSing(heathDay.getUid()) != null){
+                    throw new BizException("今日已打卡");
+                }
+            }else{
+                throw new BizException("非法的用户ID");
             }
-
            return heathDayMapper.insertSelective(heathDay);
-
         }
 
         throw new BizException("非法的数据参数");

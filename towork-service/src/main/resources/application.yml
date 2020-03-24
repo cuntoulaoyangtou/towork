@@ -14,19 +14,19 @@ logging:
 eureka:
   client:
     service-url:
-      defaultZone: http://121.37.20.211:8888/eureka
+      defaultZone: http://192.168.31.77:8888/eureka
   instance:
     # ������getHostname��ȡʵ����hostnameʱ������ip������host����
     prefer-ip-address: true
     lease-expiration-duration-in-seconds: 90
     lease-renewal-interval-in-seconds: 30
-    ip-address: 121.37.20.211
+    ip-address: 192.168.31.77
 spring:
   datasource:
     password: e0,qP;ba7Qdg
 #    password: 123456
     username: root
-    url: jdbc:mysql://192.168.0.153:3306/towork?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://121.37.20.211:3306/towork?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
   redis:
     database: 0
     host: 192.168.0.153

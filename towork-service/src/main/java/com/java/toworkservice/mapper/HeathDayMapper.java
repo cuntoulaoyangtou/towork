@@ -1,13 +1,12 @@
 package com.java.toworkservice.mapper;
 
 import com.java.toworkservice.entity.HeathDay;
-import org.apache.ibatis.annotations.One;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 
+import javax.xml.crypto.Data;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -27,10 +26,13 @@ public interface HeathDayMapper extends Mapper<HeathDay> {
             "<if test='incomadd!=null'>and incomadd=#{incomadd}</if>" +
             "</where>" +
             "</script>")
-    @Results(id = "q_all", value = {
+    @Results(id = "u_id", value = {
             @Result(column = "uid",property = "uid"),
             @Result(column = "uid",property = "userInfo", one = @One(select = "com.java.toworkservice.mapper.UserInfoMapper.selectByPrimaryKey")),
     })
     List<HeathDay> getHeathDayAndUser(Map<String,Object> map);
+    @Select("<script>select * from heathday where to_days(create_date) = to_days(now()) <if test='uid!=null'>and uid=#{uid}</if></script>")
+    @ResultMap(value = "u_id")
+    HeathDay getHeathIsSing(Integer uid);
 
 }

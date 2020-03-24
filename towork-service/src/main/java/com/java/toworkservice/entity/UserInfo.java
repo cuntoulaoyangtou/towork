@@ -27,13 +27,13 @@ public class UserInfo {
     private String grade;//所在班次
     private String password;
     private String avatar; //头像
-    private Integer face_id;//人脸识别ID
+    private String face_id;//人脸识别ID
 
-    public Integer getFace_id() {
+    public String getFace_id() {
         return face_id;
     }
 
-    public void setFace_id(Integer face_id) {
+    public void setFace_id(String face_id) {
         this.face_id = face_id;
     }
 

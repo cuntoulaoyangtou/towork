@@ -40,6 +40,8 @@ public class UploadController {
     @PostMapping("/uploadFile")
     public Result uploadFile(@RequestParam("file") MultipartFile file,HttpServletRequest request){
         String header = request.getHeader(Constants.getRequestHeaderToken());
+        String uuid = request.getParameter("uuid");
+        System.out.println(uuid);
         System.out.println(Constants.getRequestHeaderToken()+"\t"+header);
         Claims claims = JwtUtil.parseJWT(header);
         String subject = claims.getSubject();
@@ -49,6 +51,7 @@ public class UploadController {
         String fileDownloadUri = serverConfig.getUrl()+"/api/upload/downloadFile/"+fileName;
         //文件文件上传
         userInfo.setAvatar(fileDownloadUri);
+        userInfo.setFace_id(uuid);
         UserInfo userInfo1 = userInfoService.changeUserInfo(userInfo);
 
         return ResultGenerator.genSuccessResult(userInfo1);
