@@ -33,14 +33,13 @@ public class TodayFrendsController {
             map.put("end_date",request.getParameter("end_date"));
             map.put("name",request.getParameter("name"));
             PageInfo<TodayFriends> byPage = todyFrendsService.getByPage(map, pageNum, pageSize);
-        System.out.println("lllllllllllll>>>>>>>>>>>>>>>>>");
           return ResultGenerator.genSuccessResult(byPage);
     }
 
    @PostMapping("add")
     public  Result add(TodayFriends todayFriends){
         String res=todyFrendsService.add(todayFriends);
-        return  ResultGenerator.genSuccessResult(res);
+        return  ResultGenerator.genSuccessResult("添加成功");
    }
    @PostMapping("up")
     public Result updata(TodayFriends todayFriends){

@@ -23,7 +23,7 @@ public class HeathDayController {
     @PostMapping("sign")
     public Result sign(HeathDay heathDay) {
         heathDayService.sign(heathDay);
-        return ResultGenerator.genSuccessResult(heathDay);
+        return ResultGenerator.genSuccessResult("今日打卡成功");
     }
 
     @PostMapping("update")

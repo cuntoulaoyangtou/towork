@@ -20,11 +20,14 @@ public interface TodayFrendsMapper extends Mapper<TodayFriends> {
             "<if test=\"name!=null and name!=''\">and uid = select uid from userinfo where username = #{name}</if>" +
             "</where>" +
             "</script>")
-    @Results(id = "u_id", value = {
+    @Results(id = "t_id", value = {
             @Result(column = "uid", property = "uid"),
             @Result(column = "uid", property = "userInfo", one = @One(select = "com.java.toworkservice.mapper.UserInfoMapper.selectByPrimaryKey")),
     })
     List<TodayFriends> getTodyFrends(Map<String, Object> map);
+    @Select("<script>select * from todyfrends where to_days(create_date) = to_days(now()) <if test='uid!=null'>and uid=#{uid}</if></script>")
+    @ResultMap(value = "t_id")
+    TodayFriends getTodyFrendsIsSing(Integer uid);
 
 
 }
