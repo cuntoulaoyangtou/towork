@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.List;
+import java.util.Map;
+
 @Service
 @Transactional
 public class TodyFrendsService {
@@ -59,19 +62,13 @@ public class TodyFrendsService {
 
 
 
-   public PageInfo<TodayFriends> getByPage(TodayFriends todayFriends,Integer pageNum,Integer pageSize){
-         Example example =new Example(TodayFriends.class);
-
-        Example.Criteria criteria = example.createCriteria();
-
-        if(null!=todayFriends){
-            if (todayFriends.getUid()!=null){
-                criteria.andEqualTo("uid",todayFriends.getUid());
-            }
-
-        }
-       PageHelper.startPage(pageNum,pageSize,"date desc");
-        PageInfo<TodayFriends> tPageInfo = new PageInfo<>(todayFrendsMapper.selectByExample(example));
+   public PageInfo<TodayFriends> getByPage(Map map, Integer pageNum, Integer pageSize){
+        PageHelper.startPage(pageNum,pageSize,"date desc");
+        List todyFrends = todayFrendsMapper.getTodyFrends(map);
+       for (int i = 0; i < todyFrends.size(); i++) {
+           System.out.println(todyFrends.get(i));
+       }
+       PageInfo<TodayFriends> tPageInfo = new PageInfo<>(todyFrends);
 
        return  tPageInfo;
    }

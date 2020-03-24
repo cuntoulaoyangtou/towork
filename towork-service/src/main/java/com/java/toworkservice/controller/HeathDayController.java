@@ -7,10 +7,7 @@ import com.java.toworkservice.service.HeathDayService;
 import entity.Result;
 import org.apache.ibatis.annotations.ResultMap;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import utils.ResultGenerator;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,9 +39,9 @@ public class HeathDayController {
      * @param pageSize
      * @return
      */
-    @GetMapping("list")
+    @PostMapping("list")
     public Result getByPage(HttpServletRequest request, Integer pageNum, Integer pageSize) {
-
+        System.out.println("lai"+ request);
         Map map = new HashMap();
         map.put("iskeke",request.getParameter("iskeke"));
         map.put("ishot",request.getParameter("ishot"));
@@ -54,7 +51,7 @@ public class HeathDayController {
         map.put("incomadd",request.getParameter("incomadd"));
         map.put("start_date",request.getParameter("start_date"));
         map.put("end_date",request.getParameter("end_date"));
-          PageInfo<HeathDay> pageInfo = heathDayService.getlist(map, pageNum, pageSize);
+  PageInfo<HeathDay> pageInfo = heathDayService.getlist(map, pageNum, pageSize);
           return  ResultGenerator.genSuccessResult(pageInfo);
     }
 }
