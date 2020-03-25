@@ -3,10 +3,7 @@ package com.java.toworkservice.entity;
 import tk.mybatis.mapper.annotation.NameStyle;
 import tk.mybatis.mapper.code.Style;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -21,7 +18,7 @@ public class HeathDay {
     private Integer uid;    //用户id
     private Date create_date;   //创建时间
     private Date update_date;   //修改时间
-    private double temperature;//体温
+    private Double temperature;//体温
     private Boolean ishot;//是否发烧 1是 2否
     private Boolean iskeke;//是否咳嗽 1是 2否
     private Boolean towuhan;//是否到过武汉 1是 2否
@@ -30,6 +27,7 @@ public class HeathDay {
     private Boolean incomadd;//是否在企业所在地 1是 2否
     private String other; //其他信息
     private String update_reason;   //修改原因
+    @Transient
     private UserInfo userInfo;
 
     public Integer getHid() {
@@ -64,11 +62,11 @@ public class HeathDay {
         this.update_date = update_date;
     }
 
-    public double getTemperature() {
+    public Double getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(double temperature) {
+    public void setTemperature(Double temperature) {
         this.temperature = temperature;
     }
 
@@ -143,5 +141,25 @@ public class HeathDay {
 
     public void setUserInfo(UserInfo userInfo) {
         this.userInfo = userInfo;
+    }
+
+    @Override
+    public String toString() {
+        return "HeathDay{" +
+                "hid=" + hid +
+                ", uid=" + uid +
+                ", create_date=" + create_date +
+                ", update_date=" + update_date +
+                ", temperature=" + temperature +
+                ", ishot=" + ishot +
+                ", iskeke=" + iskeke +
+                ", towuhan=" + towuhan +
+                ", crosswh=" + crosswh +
+                ", firends_tor_cwh=" + firends_tor_cwh +
+                ", incomadd=" + incomadd +
+                ", other='" + other + '\'' +
+                ", update_reason='" + update_reason + '\'' +
+                ", userInfo=" + userInfo +
+                '}';
     }
 }

@@ -37,8 +37,9 @@ public class TodayFrendsController {
     }
 
    @PostMapping("add")
-    public  Result add(TodayFriends todayFriends){
-        String res=todyFrendsService.add(todayFriends);
+    public  Result add(Integer uid,String names){
+       System.out.println(uid+"\t"+names);
+        String res=todyFrendsService.add(uid,names);
         return  ResultGenerator.genSuccessResult("添加成功");
    }
    @PostMapping("up")

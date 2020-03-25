@@ -7,6 +7,7 @@ import com.java.toworkservice.service.UserInfoService;
 import com.java.toworkservice.utils.RedisUtil;
 import config.Constants;
 import entity.Result;
+import io.jsonwebtoken.Claims;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import utils.JwtUtil;
 import utils.ResultGenerator;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @ClassNameUserInfoContrellor
@@ -53,7 +56,11 @@ public class UserInfoContrellor {
 
     }
     @PostMapping("change")
-    public Result changeUserInfo(UserInfo userInfo){
+    public Result changeUserInfo(UserInfo userInfo, HttpServletRequest request){
+        String header = request.getHeader(Constants.getRequestHeaderToken());
+        Claims claims = JwtUtil.parseJWT(header);
+        UserInfo userInfo2 = JSON.parseObject(claims.getSubject(), UserInfo.class);
+        userInfo.setUid(userInfo2.getUid());
         UserInfo userInfo1 = userInfoService.changeUserInfo(userInfo);
         return ResultGenerator.genSuccessResult(userInfo1);
     }

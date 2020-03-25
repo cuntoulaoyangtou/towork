@@ -1,12 +1,10 @@
 package com.java.toworkservice.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import tk.mybatis.mapper.annotation.NameStyle;
 import tk.mybatis.mapper.code.Style;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -20,7 +18,9 @@ public class TodayFriends {
     private  Integer tid;
     private  Integer uid;
     private  String  names;//接触人员名单
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private  Date   date;//填写日期
+    @Transient
     private UserInfo userInfo;
 
     public Integer getUid() {

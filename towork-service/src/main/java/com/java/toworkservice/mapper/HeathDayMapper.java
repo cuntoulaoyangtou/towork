@@ -31,8 +31,11 @@ public interface HeathDayMapper extends Mapper<HeathDay> {
             @Result(column = "uid",property = "userInfo", one = @One(select = "com.java.toworkservice.mapper.UserInfoMapper.selectByPrimaryKey")),
     })
     List<HeathDay> getHeathDayAndUser(Map<String,Object> map);
-    @Select("<script>select * from heathday where to_days(create_date) = to_days(now()) <if test='uid!=null'>and uid=#{uid}</if></script>")
-    @ResultMap(value = "u_id")
-    HeathDay getHeathIsSing(Integer uid);
+    @Select("<script>select * from heathday where to_days(create_date) = to_days(now()) <if test='uid>0'>and uid=#{uid}</if></script>")
+    HeathDay getHeathIsSing(@Param(value = "uid") Integer uid);
+
+    @Insert("insert into heathday (uid,create_date,temperature,ishot,iskeke,towuhan,crosswh,firends_tor_cwh,incomadd,other ) " +
+            "values (#{uid},now(),#{temperature},#{ishot},#{iskeke},#{towuhan},#{crosswh},#{firends_tor_cwh},#{incomadd},#{other})")
+    int addHeathDay(Integer uid,Double temperature,Boolean ishot,Boolean iskeke,Boolean towuhan,Boolean crosswh,Boolean firends_tor_cwh,Boolean incomadd,String other);
 
 }

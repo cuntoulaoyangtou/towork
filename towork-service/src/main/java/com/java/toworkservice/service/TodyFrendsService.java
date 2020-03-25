@@ -22,16 +22,17 @@ public class TodyFrendsService {
 
     /**
      * 增加密切接触人员
-     * @param todayFriends
+     * @param names
      * @return
      */
-    public String add(TodayFriends todayFriends){
+    public String add(Integer uid,String names){
 
-        if(null!=todayFriends){
-            TodayFriends todayFriends1=todayFrendsMapper.getTodyFrendsIsSing(todayFriends.getUid());
+        if(uid>0&&names!=null){
+            TodayFriends todayFriends=todayFrendsMapper.getTodyFrendsIsSing(uid);
+            System.out.println(">>>>>>>>>>>>>>>");
             if(todayFriends==null){
-                todayFriends.setDate(new Date());
-                todayFrendsMapper.insertSelective(todayFriends);
+                todayFrendsMapper.addTodyFrends(uid,names);
+                return "添加成功";
             }else{
                 throw  new BizException("今天已经填写过了");
             }

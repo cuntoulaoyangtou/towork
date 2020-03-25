@@ -48,7 +48,7 @@ public class UploadController {
         UserInfo userInfo = JSON.parseObject(subject, UserInfo.class);
 
         String fileName = FileUtil.storeFile(file);
-        String fileDownloadUri = serverConfig.getUrl()+"/api/upload/downloadFile/"+fileName;
+        String fileDownloadUri = "http://121.37.20.211:8089"+"/api/upload/downloadFile/"+fileName;
         //文件文件上传
         userInfo.setAvatar(fileDownloadUri);
         userInfo.setFace_id(uuid);

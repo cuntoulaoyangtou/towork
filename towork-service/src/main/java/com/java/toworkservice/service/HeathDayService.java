@@ -32,17 +32,20 @@ public class HeathDayService {
      */
     public int sign(HeathDay heathDay){
         if(heathDay!=null){
-            Example example=new Example(HeathDay.class);
-
-            Example.Criteria criteria = example.createCriteria();
-
             if(heathDay.getUid()!=null){
-                if(heathDayMapper.getHeathIsSing(heathDay.getUid()) != null){
-                    throw new BizException("今日已打卡");
+                System.out.println( "<<<<<<<<<<<<<<<<<<<<"+heathDay.getUid());
+                Integer uid = heathDay.getUid();
+                HeathDay heathIsSing = heathDayMapper.getHeathIsSing(uid);
+                System.out.println(heathIsSing);
+                if(heathIsSing != null){
+                    System.out.println("dfdfdsfdsf");
+                    throw new BizException("今日已经打卡");
                 }
+                System.out.println(">>>>>>>>>>>>>>>>>>");
             }else{
                 throw new BizException("非法的用户ID");
             }
+            heathDay.setCreate_date(new Date());
            return heathDayMapper.insertSelective(heathDay);
         }
 
