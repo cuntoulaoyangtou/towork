@@ -1,6 +1,8 @@
 package com.java.toworkservice.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.PageInfo;
+import com.java.toworkservice.entity.TodayFriends;
 import com.java.toworkservice.entity.UserInfo;
 import com.java.toworkservice.exception.BizException;
 import com.java.toworkservice.service.UserInfoService;
@@ -18,6 +20,8 @@ import utils.JwtUtil;
 import utils.ResultGenerator;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @ClassNameUserInfoContrellor
@@ -69,5 +73,20 @@ public class UserInfoContrellor {
         UserInfo userInfo = userInfoService.getUserInfo(key);
         return ResultGenerator.genSuccessResult(userInfo);
     }
+
+    @PostMapping("list")
+    public Result getByPage(HttpServletRequest request, Integer pageNum, Integer pageSize){
+        Map map=new HashMap();
+        map.put("username",request.getParameter("username"));
+        map.put("phone",request.getParameter("phone"));
+        map.put("age",request.getParameter("age"));
+        map.put("sex",request.getParameter("sex"));
+        map.put("uno",request.getParameter("uno "));
+        map.put("department",request.getParameter("department"));
+
+        PageInfo<UserInfo> byPage = userInfoService.getByPage(map, pageNum, pageSize);
+        return ResultGenerator.genSuccessResult(byPage);
+    }
+
 
 }

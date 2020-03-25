@@ -3,6 +3,7 @@ package com.java.toworkservice.service;
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.java.toworkservice.entity.TodayFriends;
 import com.java.toworkservice.entity.UserInfo;
 import com.java.toworkservice.exception.BizException;
 import com.java.toworkservice.mapper.UserInfoMapper;
@@ -18,6 +19,7 @@ import tk.mybatis.mapper.entity.Example;
 import utils.JwtUtil;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @ClassNameUserInfoService
@@ -142,6 +144,16 @@ public class UserInfoService {
 
         }
         return null;
+    }
+    public PageInfo<UserInfo> getByPage(Map map, Integer pageNum, Integer pageSize){
+        PageHelper.startPage(pageNum,pageSize,"uid desc");
+        List userinfo = userInfoMapper.getUserInfoByPage(map);
+        for (int i = 0; i < userinfo.size(); i++) {
+            System.out.println(userinfo.get(i));
+        }
+        PageInfo<UserInfo> tPageInfo = new PageInfo<>(userinfo);
+
+        return  tPageInfo;
     }
 
 }
