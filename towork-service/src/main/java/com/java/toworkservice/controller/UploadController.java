@@ -3,6 +3,7 @@ package com.java.toworkservice.controller;
 import com.alibaba.fastjson.JSON;
 import com.java.toworkservice.config.ServerConfig;
 import com.java.toworkservice.entity.UserInfo;
+import com.java.toworkservice.exception.BizException;
 import com.java.toworkservice.service.UserInfoService;
 import com.java.toworkservice.utils.FileUtil;
 
@@ -41,16 +42,19 @@ public class UploadController {
     public Result uploadFile(@RequestParam("file") MultipartFile file,HttpServletRequest request){
         String header = request.getHeader(Constants.getRequestHeaderToken());
         String uuid = request.getParameter("uuid");
-        System.out.println(uuid);
+        if(uuid==null){
+            throw new BizException("非法的参数");
+        }
         System.out.println(Constants.getRequestHeaderToken()+"\t"+header);
         Claims claims = JwtUtil.parseJWT(header);
         String subject = claims.getSubject();
         UserInfo userInfo = JSON.parseObject(subject, UserInfo.class);
-
-        String fileName = FileUtil.storeFile(file);
-        String fileDownloadUri = "http://121.37.20.211:8089"+"/api/upload/downloadFile/"+fileName;
-        //文件文件上传
-        userInfo.setAvatar(fileDownloadUri);
+        if(file != null){
+            String fileName = FileUtil.storeFile(file);
+            String fileDownloadUri = "http://121.37.227.150:8089"+"/api/upload/downloadFile/"+fileName;
+            //文件文件上传
+            userInfo.setAvatar(fileDownloadUri);
+        }
         userInfo.setFace_id(uuid);
         UserInfo userInfo1 = userInfoService.changeUserInfo(userInfo);
 

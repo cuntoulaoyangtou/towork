@@ -2,7 +2,6 @@ package com.java.toworkservice.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageInfo;
-import com.java.toworkservice.entity.TodayFriends;
 import com.java.toworkservice.entity.UserInfo;
 import com.java.toworkservice.exception.BizException;
 import com.java.toworkservice.service.UserInfoService;
@@ -10,7 +9,6 @@ import com.java.toworkservice.utils.RedisUtil;
 import config.Constants;
 import entity.Result;
 import io.jsonwebtoken.Claims;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -66,11 +64,18 @@ public class UserInfoContrellor {
         UserInfo userInfo2 = JSON.parseObject(claims.getSubject(), UserInfo.class);
         userInfo.setUid(userInfo2.getUid());
         UserInfo userInfo1 = userInfoService.changeUserInfo(userInfo);
+        RedisUtil.set(header,userInfo1);
         return ResultGenerator.genSuccessResult(userInfo1);
     }
     @GetMapping("getuserinfo")
     public Result getUserInfo(String key){
-        UserInfo userInfo = userInfoService.getUserInfo(key);
+        UserInfo userInfo;
+        try {
+            userInfo = userInfoService.getUserInfo(key);
+        }catch (Exception e){
+            return ResultGenerator.genUnauthorizedResult().setMessage("Token失效");
+        }
+
         return ResultGenerator.genSuccessResult(userInfo);
     }
 
@@ -86,6 +91,10 @@ public class UserInfoContrellor {
 
         PageInfo<UserInfo> byPage = userInfoService.getByPage(map, pageNum, pageSize);
         return ResultGenerator.genSuccessResult(byPage);
+    }
+    @GetMapping("logout")
+    public void logout(String key){
+        RedisUtil.del(key);
     }
 
 

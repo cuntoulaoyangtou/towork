@@ -19,7 +19,7 @@ eureka:
     prefer-ip-address: true
     lease-expiration-duration-in-seconds: 90
     lease-renewal-interval-in-seconds: 30
-    ip-address: 121.37.20.211
+    ip-address: 121.37.227.150
 spring:
   datasource:
     password: e0,qP;ba7Qdg

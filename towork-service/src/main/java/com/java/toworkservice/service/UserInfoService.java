@@ -79,8 +79,7 @@ public class UserInfoService {
      */
     public UserInfo getUserInfo(String key){
         Claims claims = JwtUtil.parseJWT(key);
-        String subject = claims.getSubject();
-        UserInfo userInfo = JSON.parseObject(subject, UserInfo.class);
+        UserInfo userInfo = (UserInfo) RedisUtil.get(key);
         return userInfo;
     }
 

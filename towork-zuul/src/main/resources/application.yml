@@ -28,10 +28,10 @@ eureka:
   client:
     registry-fetch-interval-seconds: 5
     service-url:
-      defaultZone: http://192.168.31.77:8888/eureka
+      defaultZone: http://121.37.20.211:8888/eureka
   instance:
     prefer-ip-address: true
-    ip-address: 192.168.31.77
+    ip-address: 121.37.227.150
 hystrix:
   command:
     default:
